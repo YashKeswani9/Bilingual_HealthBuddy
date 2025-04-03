@@ -1,0 +1,68 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - check_symptoms
+  - ask_wellness_tips
+  - ask_health_question
+
+actions:
+  - action_predict_disease
+  - action_wellness_tip
+  - action_ask_health_question
+
+responses:
+  utter_greet:
+  - text: |
+        "Hey! How are you? I am HealthBuddy, your virtual health assistant.  
+        I can help you by predicting possible diseases based on your symptoms, providing wellness tips,  
+        and answering health-related questions.  
+        Feel free to ask me anything about your health!  
+        
+        ---  
+        
+        Salut ! Comment ça va ? Je suis HealthBuddy, votre assistant de santé virtuel.  
+        Je peux vous aider à prédire d’éventuelles maladies en fonction de vos symptômes,  
+        vous donner des conseils de bien-être et répondre à vos questions sur la santé.  
+        N’hésitez pas à me poser toutes vos questions sur votre santé !"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: |
+        Bye!  
+        
+        ---  
+        
+        Au revoir !
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+
+
+entities:
+  - detected_language
+  - original_text
+
+slots:
+  language:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom

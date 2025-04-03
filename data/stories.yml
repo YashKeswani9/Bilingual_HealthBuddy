@@ -1,0 +1,36 @@
+version: "3.1"
+
+stories:
+
+
+- story: user checks symptoms
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: check_symptoms
+  - action: action_predict_disease
+
+- story: wellness tip
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_wellness_tips
+    - action: action_wellness_tip
+
+- story: health question
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: ask_health_question
+    - action: action_ask_health_question
+
+- story: user asks multiple questions
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: check_symptoms
+    - action: action_predict_disease
+    - intent: ask_wellness_tips
+    - action: action_wellness_tip
+    - intent: ask_health_question
+    - action: action_ask_health_question
